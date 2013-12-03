@@ -1,4 +1,5 @@
 ExpenseManager
 ==============
 
-html5 expence manager app
+HTML5 Expence Manager App
+
