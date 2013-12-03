@@ -1,0 +1,22 @@
+{
+  "name": "ExpenceManager",
+  "version": "0.0.0",
+  "description": "Expence Manager Application",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/husa/ExpenseManager"
+  },
+  "author": "Yuriy Husnay",
+  "license": "BSD",
+  "readmeFilename": "README.md",
+  "gitHead": "715c04cf56f594de5fb933e22fb4bac79d29bf0a",
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-less": "~0.8.2",
+    "grunt-contrib-watch": "~0.5.3"
+  }
+}
