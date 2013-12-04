@@ -16,7 +16,8 @@
   "gitHead": "715c04cf56f594de5fb933e22fb4bac79d29bf0a",
   "devDependencies": {
     "grunt": "~0.4.2",
+    "grunt-cli": "~0.1.11",
     "grunt-contrib-less": "~0.8.2",
-    "grunt-contrib-watch": "~0.5.3"
+    "grunt-contrib-watch": "~0.5.3",
   }
 }
