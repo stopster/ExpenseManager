@@ -1,0 +1,64 @@
+#content-wrapper {
+    color: #222;
+
+    #content-header {
+        height: @content-header-height;
+        overflow: hidden;
+        background: @color-content-header-background;
+
+        .button {
+            position: relative;
+            margin: 10px;
+            float: right;
+
+            .button-icon {
+                display: inline-block;
+                position: absolute;
+                top: 10px;
+                left: 12px;
+                width: 14px;
+                height: 14px;
+                fill: #fff;
+            }
+        }
+
+        #button-add {
+            padding: 8px 14px 8px 30px;
+            text-transform: uppercase;
+            font-weight: bold;
+            line-height: 2em;
+        }
+    }
+
+    #content {
+        padding: 20px;
+        font-size: 16pt;
+
+        #expence-list {
+            max-width: 800px;
+            margin: 0 auto;
+
+            tr:nth-child(odd) {
+                background: #fcfcfc;
+            }
+
+            .expence-item {
+                padding: 10px 0;
+
+                td {
+                    padding: 10px 5px;
+                }
+
+                .amount {
+                    font-size: 24pt;
+                }
+
+                .category {}
+
+                .title {}
+
+                .date {}
+            }
+        }
+    }
+}

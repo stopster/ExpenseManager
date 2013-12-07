@@ -1,0 +1,88 @@
+#main-menu {
+    background : @color-menu-background;
+    padding-top: @menu-header-height;
+    .box-sizing(border-box);
+    .user-select(none);
+
+    #menu-header, #menu-footer {
+        position: absolute;
+        width: 100%;
+        padding: 10px;
+        .box-sizing(border-box);
+    }
+    #menu-header {
+        top:0;
+        height: @menu-header-height;
+        background: @color-menu-header-background;
+    }
+
+    #menu-footer {
+        bottom: 0;
+        height: @menu-footer-height;
+        background: @color-menu-footer-background;
+    }
+
+    #menu-items {
+
+        color: @color-menu-text;
+        text-transform: uppercase;
+        font-size: 14pt;
+        font-weight: bold;
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+            .menu-item { // li
+                position: relative;
+                padding-left: 40px;
+                height: @menu-item-height;
+                line-height: @menu-item-height;
+                .transition(.4s);
+
+                .menu-item-icon {
+                    display: inline-block;
+                    position: absolute;
+                    top:4px;
+                    left: 10px;
+                    vertical-align: middle;
+                    width: 22px;
+                    height: 22px;
+                    fill: @color-menu-text;
+                }
+
+                a {
+                    text-decoration: none;
+                    color: inherit;
+                }
+
+                &:hover {
+                    background-color: @color-menu-hover;
+                    cursor: pointer;
+                }
+                &:hover, &.selected {
+                    color: #fff;
+
+                    .menu-item-icon {
+                        fill: #55ACC0;
+                    }
+                }
+                &.selected {
+                    background: @color-menu-selected;
+
+                    &:before {
+                        content: ' ';
+                        position: absolute;
+                        top: 21px;
+                        right: -16px;
+
+                        border: solid 8px rgba(0,0,0,0);
+                        border-left-color: @color-menu-selected;
+                        background: none;
+                    }
+                }
+            }
+        }
+    }
+}
