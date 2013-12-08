@@ -1,24 +1,37 @@
 .button {
-  background-color: #333647;
+  position: relative;
+  background-color: #323544;
   border: none;
   outline: none;
   box-shadow: none;
+  color: #ffffff;
+  padding: 8px 14px 8px 30px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: bold;
+  line-height: 2em;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
   -moz-background-clip: padding;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
-  color: #fff;
-  padding: 3px;
-  cursor: pointer;
-  -webkit-transition: 0.5s;
-  -moz-transition: 0.5s;
-  -ms-transition: 0.5s;
-  -o-transition: 0.5s;
+  -webkit-transition: background-color 0.5s;
+  -moz-transition: background-color 0.5s;
+  -ms-transition: background-color 0.5s;
+  -o-transition: background-color 0.5s;
+}
+.button .button-icon {
+  display: inline-block;
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  width: 14px;
+  height: 14px;
+  fill: #fff;
 }
 .button:hover {
-  background-color: #5e6382;
+  background-color: #484c61;
   -webkit-box-shadow: 0px 0px 4px 0px #333647 inset;
   -moz-box-shadow: 0px 0px 4px 0px #333647 inset;
   box-shadow: 0px 0px 4px 0px #333647 inset;
@@ -130,6 +143,35 @@
   border-left-color: #1e202c;
   background: none;
 }
+#expence-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+#expence-list .expence-item {
+  padding: 10px 0;
+}
+#expence-list .expence-item:nth-child(odd) {
+  background-color: #fcfcfc;
+}
+#expence-list .expence-item:hover .delete {
+  opacity: 1;
+}
+#expence-list .expence-item td {
+  padding: 10px 5px;
+}
+#expence-list .expence-item .amount {
+  font-size: 24pt;
+}
+#expence-list .expence-item .delete {
+  opacity: 0;
+}
+#expence-list .expence-item .delete .button {
+  background-color: #E9545A;
+}
+#expence-list .expence-item .delete .button:hover {
+  background-color: #ef8186;
+  box-shadow: none;
+}
 #content-wrapper {
   color: #222;
 }
@@ -139,44 +181,17 @@
   background: #ffffff;
 }
 #content-wrapper #content-header .button {
-  position: relative;
   margin: 10px;
   float: right;
-}
-#content-wrapper #content-header .button .button-icon {
-  display: inline-block;
-  position: absolute;
-  top: 10px;
-  left: 12px;
-  width: 14px;
-  height: 14px;
-  fill: #fff;
-}
-#content-wrapper #content-header #button-add {
-  padding: 8px 14px 8px 30px;
-  text-transform: uppercase;
-  font-weight: bold;
-  line-height: 2em;
 }
 #content-wrapper #content {
   padding: 20px;
   font-size: 16pt;
-}
-#content-wrapper #content #expence-list {
-  max-width: 800px;
-  margin: 0 auto;
-}
-#content-wrapper #content #expence-list tr:nth-child(odd) {
-  background: #fcfcfc;
-}
-#content-wrapper #content #expence-list .expence-item {
-  padding: 10px 0;
-}
-#content-wrapper #content #expence-list .expence-item td {
-  padding: 10px 5px;
-}
-#content-wrapper #content #expence-list .expence-item .amount {
-  font-size: 24pt;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height: calc(100% -  60px);
+  overflow: auto;
 }
 body {
   font-family: 'Raleway', sans;
@@ -184,4 +199,5 @@ body {
   padding: 0;
   outline: none;
   background-color: #F6F6F6;
+  overflow: hidden;
 }

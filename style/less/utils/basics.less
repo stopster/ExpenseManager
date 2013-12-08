@@ -1,16 +1,30 @@
 .button {
-    background-color: #333647;
+    position: relative;
+    background-color: @color-button-background;
     border: none;
     outline: none;
     box-shadow: none;
-    .border-radius(3px);
-    color: #fff;
-    padding: 3px;
+    color: @color-button-text;
+    padding: 8px 14px 8px 30px;
     cursor: pointer;
-    .transition(.5s);
+    text-transform: uppercase;
+    font-weight: bold;
+    line-height: 2em;
+    .border-radius(3px);
+    .transition(background-color .5s);
+
+    .button-icon {
+        display: inline-block;
+        position: absolute;
+        top: 10px;
+        left: 12px;
+        width: 14px;
+        height: 14px;
+        fill: #fff;
+    }
 }
 
 .button:hover {
-    background-color: lighten(#333647, 20%);
+    background-color: @color-button-background-hover;
     .box-shadow(0px 0px 4px 0px #333647 inset);
 }

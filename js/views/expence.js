@@ -9,12 +9,13 @@ app.ExpenceView = Backbone.View.extend({
     template : _.template( $('#expence-view-template').html() ),
 
     events : {
-        'dblclick span' : 'edit',
-        'enter input' : 'saveEdit'
+        // 'dblclick span' : 'edit',
+        // 'enter input' : 'saveEdit',
+        'click .delete' : 'delete'
     },
 
-    initilalize : function() {
-
+    initialize : function() {
+        this.listenTo(this.model, 'destroy',this.remove);
     },
 
     render : function() {
@@ -49,6 +50,10 @@ app.ExpenceView = Backbone.View.extend({
 
 
         target.replaceWith(input);
+    },
+
+    delete : function() {
+        this.model.destroy();
     }
 
 });
