@@ -90,12 +90,12 @@
   font-size: 14pt;
   font-weight: bold;
 }
-#main-menu #menu-items ul {
+#main-menu #menu-items menu {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-#main-menu #menu-items ul .menu-item {
+#main-menu #menu-items menu .menu-item {
   position: relative;
   padding-left: 40px;
   height: 60px;
@@ -105,7 +105,7 @@
   -ms-transition: 0.4s;
   -o-transition: 0.4s;
 }
-#main-menu #menu-items ul .menu-item .menu-item-icon {
+#main-menu #menu-items menu .menu-item .menu-item-icon {
   display: inline-block;
   position: absolute;
   top: 4px;
@@ -115,26 +115,28 @@
   height: 22px;
   fill: #9898a0;
 }
-#main-menu #menu-items ul .menu-item a {
+#main-menu #menu-items menu .menu-item a {
+  position: absolute;
+  height: 100%;
   text-decoration: none;
   color: inherit;
 }
-#main-menu #menu-items ul .menu-item:hover {
+#main-menu #menu-items menu .menu-item:hover {
   background-color: #484b5e;
   cursor: pointer;
 }
-#main-menu #menu-items ul .menu-item:hover,
-#main-menu #menu-items ul .menu-item.selected {
+#main-menu #menu-items menu .menu-item:hover,
+#main-menu #menu-items menu .menu-item.selected {
   color: #fff;
 }
-#main-menu #menu-items ul .menu-item:hover .menu-item-icon,
-#main-menu #menu-items ul .menu-item.selected .menu-item-icon {
+#main-menu #menu-items menu .menu-item:hover .menu-item-icon,
+#main-menu #menu-items menu .menu-item.selected .menu-item-icon {
   fill: #55ACC0;
 }
-#main-menu #menu-items ul .menu-item.selected {
+#main-menu #menu-items menu .menu-item.selected {
   background: #1e202c;
 }
-#main-menu #menu-items ul .menu-item.selected:before {
+#main-menu #menu-items menu .menu-item.selected:before {
   content: ' ';
   position: absolute;
   top: 18px;
@@ -171,6 +173,12 @@
 #expence-list .expence-item .delete .button:hover {
   background-color: #ef8186;
   box-shadow: none;
+}
+#categories {
+  display: none;
+}
+#statistics {
+  display: none;
 }
 #content-wrapper {
   color: #222;

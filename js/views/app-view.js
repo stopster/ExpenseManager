@@ -4,29 +4,38 @@ app.AppView = Backbone.View.extend({
     el : '#content-wrapper',
 
     events : {
-        'click #button-add' : 'createNewExpence'
+        'click #button-add-expence' : 'createNewExpence'
     },
 
     initialize : function(defaults) {
-        var categories = defaults.categories;
 
         console.log('App View initialize');
 
-        this.initCategories(defaults.categories);
+        this.$content    = this.$('#content');
+        this.$menu       = $('#main-menu');
 
-        this.$content = this.$('#content');
+        this.$sections   = this.$('.content-section');
+        this.$expences   = this.$('#expences');
+        this.$categories = this.$('#categories');
+        this.$statistics = this.$('#statistics');
+
         this.$expenceList = this.$('#expence-list');
+        this.$categoryList = this.$('#category-list');
 
 
         this.listenTo(app.Expences,   'add', this.addExpence);
         this.listenTo(app.Categories, 'add', this.addCategory);
 
+        this.initCategories(defaults.categories);
+        this.initExpences();
 
-        app.Expences.fetch();
+        this.render();
     },
 
     render : function(){
-        console.log('AppView render');
+        this.deliverSection(app.State || '');
+
+        Backbone.Events.on('deliverSection', this.deliverSection, this);
     },
 
     createNewExpence : function() {
@@ -42,8 +51,17 @@ app.AppView = Backbone.View.extend({
     },
 
     addExpence : function(expence) {
-        var view = new app.ExpenceView( { model : expence } );
+        var view = new app.ExpenceView({ model : expence });
         this.$expenceList.prepend( view.render().el );
+    },
+
+    addCategory : function(category) {
+        var view = new app.CategoryView({ model : category });
+        this.$categoryList.prepend( view.render().el );
+    },
+
+    initExpences : function() {
+        app.Expences.fetch();
     },
 
     initCategories : function(categories) {
@@ -54,5 +72,18 @@ app.AppView = Backbone.View.extend({
                 app.Categories.create(category);
             });
         }
+    },
+
+    deliverSection : function(section) {
+        if (section === '') {
+            return;
+        }
+        // show corresponding section
+        this.$sections.hide();
+        this['$' + section].show();
+
+        // handle menu
+        this.$menu.find('.selected').removeClass('selected');
+        this.$menu.find('#menu-item-' + section).addClass('selected');
     }
 });

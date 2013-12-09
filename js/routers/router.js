@@ -1,9 +1,10 @@
   var AppRouter = Backbone.Router.extend({
 
     routes : {
-        '#/'         : 'gotoExpences',
-        'categories' : 'gotoCategories',
-        'statistics' : 'gotoStatistics'
+        // 'expences'   : 'gotoExpences',
+        // 'categories' : 'gotoCategories',
+        // 'statistics' : 'gotoStatistics'
+        '*section' : 'gotoSection'
     },
 
     gotoCategories : function () {
@@ -16,6 +17,12 @@
 
     gotoExpences : function () {
         console.log('gotoExpences');
+    },
+
+    gotoSection : function(section) {
+        app.State = section || '';
+
+        Backbone.Events.trigger('deliverSection', section);
     }
   });
 

@@ -1027,14 +1027,14 @@
             </div>
 
             <div id="menu-items">
-                <ul>
-                    <li id="menu-item-expences" class="menu-item selected">
+                <menu>
+                    <li id="menu-item-expences" class="menu-item">
                         <div class="menu-item-icon">
                             <svg viewBox="0 0 32 32">
                                 <use xlink:href="#list"></use>
                             </svg>
                         </div>
-                        <a href="#/">expences</a>
+                        <a href="#/expences">expences</a>
                     </li>
                     <li id="menu-item-categories" class="menu-item">
                         <div class="menu-item-icon">
@@ -1052,7 +1052,7 @@
                         </div>
                         <a href="#/statistics">statistics</a>
                     </li>
-                </ul>
+                </menu>
             </div>
 
             <div id="menu-footer">
@@ -1062,7 +1062,7 @@
         <div id="content-wrapper">
 
             <div id="content-header">
-                <button id="button-add" class="button">
+                <button id="button-add-expence" class="button">
                     <div class="button-icon">
                         <svg viewBox="0 0 32 32">
                             <use xlink:href="#plus"></use>
@@ -1079,7 +1079,7 @@
                 </section>
 
                 <section class="content-section" id="categories">
-                    categories
+                    <table id="category-list" cellpadding="0" cellspacing="0" border="0" width="80%"></table>
                 </section>
 
                 <section class="content-section" id="statistics">
@@ -1109,11 +1109,26 @@
         </td>
     </script>
 
+    <script type="text/template" id="category-view-template">
+        <td class="color"><%= color %></td>
+        <td class="title"><%- title %></td>
+
+        <td class="delete">
+            <button class="button">
+                <div class="button-icon">
+                    <svg viewBox="0 0 32 32">
+                        <use xlink:href="#close"></use>
+                    </svg>
+                </div>
+                delete
+            </button>
+        </td>
+    </script>
     <!--
     <script src="js/vendor/require.config.js"></script>
     <script src="js/vendor/require.js" data-main="app"></script>
  -->
-
+    <script src="js/vendor/chance.js"></script>
     <script src="js/vendor/zepto.js"></script>
     <script src="js/vendor/underscore.js"></script>
 
@@ -1133,8 +1148,6 @@
     <script src="js/views/app-view.js"></script>
 
     <script src="js/routers/router.js"></script>
-
-    <script src="js/vendor/chance.js"></script>
 
     <script src="js/defaults.js"></script>
     <script src="js/app.js"></script>

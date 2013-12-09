@@ -2,13 +2,13 @@ var app = app || {};
 
 app.defaults = {
     categories : [
-        { title : 'Health', color : '' },
-        { title : 'Bills', color : '' },
-        { title : 'Grocerries', color : '' },
-        { title : 'Leisure', color: '' },
-        { title : 'Transportation', color : '' },
-        { title : 'Shopping', color : '' },
-        { title : 'Household', color : '' },
-        { title : 'Eating Out', color : '' }
+        { title : 'Health',         color : 'red'   },
+        { title : 'Bills',          color : 'green' },
+        { title : 'Grocerries',     color : 'blue'  },
+        { title : 'Leisure',        color : 'white' },
+        { title : 'Transportation', color : 'navy'  },
+        { title : 'Shopping',       color : 'rose'  },
+        { title : 'Household',      color : 'grey'  },
+        { title : 'Eating Out',     color : 'lime'  }
     ]
 }
