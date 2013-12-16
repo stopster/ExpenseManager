@@ -1578,4 +1578,10 @@
     };
   };
 
+if (typeof define === 'function' && define.amd) {
+    define('backbone', function(){
+        return Backbone;
+    })
+}
+
 }).call(this);

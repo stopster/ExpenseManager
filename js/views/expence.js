@@ -1,59 +1,59 @@
-var app = app || {};
+define(['zepto', 'underscore', 'backbone'], function($, _, Backbone) {
+    'use strict';
 
-app.ExpenceView = Backbone.View.extend({
+    return Backbone.View.extend({
 
-    tagName : 'tr',
+        tagName : 'tr',
 
-    className : 'expence-item',
+        className : 'expence-item',
 
-    template : _.template( $('#expence-view-template').html() ),
+        template : _.template( $('#expence-view-template').html() ),
 
-    events : {
-        // 'dblclick span' : 'edit',
-        // 'enter input' : 'saveEdit',
-        'click .delete' : 'delete'
-    },
+        events : {
+            'click .delete' : 'delete'
+        },
 
-    initialize : function() {
-        this.listenTo(this.model, 'destroy',this.remove);
-    },
+        initialize : function() {
+            this.listenTo(this.model, 'destroy',this.remove);
+        },
 
-    render : function() {
-        var date = this.transformDate(this.model.get('date')),
-            modelObj = _.extend(this.model.toJSON(), {'date' : date});
+        render : function() {
+            var date = this.transformDate(this.model.get('date')),
+                modelObj = _.extend(this.model.toJSON(), {'date' : date});
 
-        this.$el.html( this.template(modelObj) );
+            this.$el.html( this.template(modelObj) );
 
-        return this;
-    },
+            return this;
+        },
 
-    transformDate : function(JSONdate) {
-        var date = new Date(JSONdate),
-            m;
+        transformDate : function(JSONdate) {
+            var date = new Date(JSONdate),
+                m;
 
-        return date.toDateString() + ' '
-        + date.getHours() + ':'
-        + ((m = date.getMinutes()) < 10 ? '0' + m : m);
-    },
+            return date.toDateString() + ' ' +
+                date.getHours() + ':' +
+                ((m = date.getMinutes()) < 10 ? '0' + m : m);
+        },
 
-    edit : function(e) {
-        var target = $(e.target),
-            dimensions = {
-                width : target.width(),
-                height : target.height(),
-                offset : target.offset()
-            },
-            input = $('<input>').
-                        height(dimensions.height).
-                        width(dimensions.width).
-                        offset(dimensions.offset);
+        edit : function(e) {
+            var target = $(e.target),
+                dimensions = {
+                    width : target.width(),
+                    height : target.height(),
+                    offset : target.offset()
+                },
+                input = $('<input>').
+                            height(dimensions.height).
+                            width(dimensions.width).
+                            offset(dimensions.offset);
 
 
-        target.replaceWith(input);
-    },
+            target.replaceWith(input);
+        },
 
-    delete : function() {
-        this.model.destroy();
-    }
+        delete : function() {
+            this.model.destroy();
+        }
 
+    });
 });

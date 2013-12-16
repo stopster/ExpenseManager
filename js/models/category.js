@@ -1,8 +1,10 @@
-var app = app || {};
+define(['backbone'], function(Backbone) {
+    'use strict';
 
-app.Category = Backbone.Model.extend({
-    defaults : {
-        title : '',
-        color : '#c0c0c0'
-    }
+    return Backbone.Model.extend({
+        defaults : {
+            title : '',
+            color : '#c0c0c0'
+        }
+    });
 });

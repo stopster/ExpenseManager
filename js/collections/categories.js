@@ -1,11 +1,14 @@
-var app = app || {};
+define(['backbone', 'models/category', 'backbone.localStorage'],
+    function(Backbone, Category){
+    'use strict';
 
-app.CategoriesList = Backbone.Collection.extend({
+    var CategoriesList = Backbone.Collection.extend({
 
-    model : app.Category,
+        model : Category,
 
-    localStorage : new Backbone.LocalStorage('categories'),
+        localStorage : new Backbone.LocalStorage('categories'),
 
+    });
+
+    return new CategoriesList();
 });
-
-app.Categories = new app.CategoriesList();

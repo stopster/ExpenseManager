@@ -1,22 +1,29 @@
-var app = app || {};
+define(['backbone', 'models/expence', 'backbone.localStorage'],
+    function(Backbone, Expence) {
 
-app.ExpencesList = Backbone.Collection.extend({
+    'use strict';
 
-    // Model used in Collection
-    model : app.Expence,
+    var ExpencesList = Backbone.Collection.extend({
 
-    // place to save collection data
-    // save all expences as "expences" namespace in Local Storage
-    localStorage : new Backbone.LocalStorage("expences"),
+        // Model used in Collection
+        model : Expence,
+
+        // place to save collection data
+        // save all expences as "expences" namespace in Local Storage
+        localStorage : new Backbone.LocalStorage('expences'),
 
 
-    // filter all expences by category
-    filter : function(category) {
-        return this.filter(function(expence){
-            return expence.get('category') === category;
-        });
-    },
+        // filter all expences by category
+        filter : function(category) {
+            return this.filter(function(expence){
+                return expence.get('category') === category;
+            });
+        },
 
+    });
+
+    return new ExpencesList();
 });
 
-app.Expences = new app.ExpencesList();
+
+

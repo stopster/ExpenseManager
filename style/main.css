@@ -176,6 +176,30 @@
 }
 #categories {
   display: none;
+  max-width: 800px;
+  margin: 0 auto;
+}
+#categories .category-item {
+  padding: 10px 0;
+}
+#categories .category-item:nth-child(odd) {
+  background-color: #fcfcfc;
+}
+#categories .category-item:hover .delete {
+  opacity: 1;
+}
+#categories .category-item td {
+  padding: 10px 5px;
+}
+#categories .category-item .delete {
+  opacity: 0;
+}
+#categories .category-item .delete .button {
+  background-color: #E9545A;
+}
+#categories .category-item .delete .button:hover {
+  background-color: #ef8186;
+  box-shadow: none;
 }
 #statistics {
   display: none;

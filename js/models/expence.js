@@ -1,15 +1,14 @@
-var app = app || {};
+define(['backbone'], function(Backbone){
+    'use strict';
 
-/**
-* Basic Expence Model
-*/
-app.Expence = Backbone.Model.extend({
+    return Backbone.Model.extend({
 
-    // default attributes
-    defaults : {
-        title    : '',
-        amount   : '',
-        category : '',
-        date     : (new Date()).toJSON()
-    }
+        // default attributes
+        defaults : {
+            title    : '',
+            amount   : '',
+            category : '',
+            date     : (new Date()).toJSON()
+        }
+    });
 });

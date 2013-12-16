@@ -1562,4 +1562,11 @@ window.Zepto = Zepto
   }
 
   testEl = null
+
+
+  if (typeof define === 'function' && define.amd) {
+    define('zepto', function() {
+        return $;
+    })
+  }
 })(Zepto)

@@ -1,31 +1,18 @@
-  var AppRouter = Backbone.Router.extend({
+define(['backbone'], function(Backbone) {
+    'use strict';
 
-    routes : {
-        // 'expences'   : 'gotoExpences',
-        // 'categories' : 'gotoCategories',
-        // 'statistics' : 'gotoStatistics'
-        '*section' : 'gotoSection'
-    },
+    var AppRouter = Backbone.Router.extend({
 
-    gotoCategories : function () {
-        console.log('gotoCategories');
-    },
+        routes : {
+            '*section' : 'gotoSection'
+        },
 
-    gotoStatistics : function () {
-        console.log('gotoStatistics');
-    },
+        gotoSection : function(section) {
+            Backbone.Events.trigger('deliverSection', section);
+        }
+      });
 
-    gotoExpences : function () {
-        console.log('gotoExpences');
-    },
+    return AppRouter;
+});
 
-    gotoSection : function(section) {
-        app.State = section || '';
 
-        Backbone.Events.trigger('deliverSection', section);
-    }
-  });
-
-app.Router = new AppRouter();
-
-Backbone.history.start();

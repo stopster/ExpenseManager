@@ -1,28 +1,31 @@
-var app = app || {};
+define(['zepto', 'underscore', 'backbone'], function($, _, Backbone) {
+    'use strict';
 
-app.CategoryView = Backbone.View.extend({
-    tagName : 'tr',
+    return Backbone.View.extend({
 
-    className : 'category-item',
+        tagName : 'tr',
 
-    template : _.template( $('#category-view-template').html() ),
+        className : 'category-item',
 
-    events : {
-        'click .delete' : 'delete'
-    },
+        template : _.template( $('#category-view-template').html() ),
 
-    initialize : function() {
-        this.listenTo(this.model, 'destroy', this.remove);
-    },
+        events : {
+            'click .delete' : 'delete'
+        },
 
-    render : function() {
+        initialize : function() {
+            this.listenTo(this.model, 'destroy', this.remove);
+        },
 
-        this.$el.html( this.template( this.model.toJSON() ) );
+        render : function() {
 
-        return this;
-    },
+            this.$el.html( this.template( this.model.toJSON() ) );
 
-    delete : function() {
-        this.model.destroy();
-    }
+            return this;
+        },
+
+        delete : function() {
+            this.model.destroy();
+        }
+    });
 });
