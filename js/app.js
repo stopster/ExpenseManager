@@ -1,21 +1,9 @@
-require.config({
-    baseUrl: 'js',
-    paths : {
-        'Chance'                : 'vendor/chance',
-        'zepto'                 : 'vendor/zepto',
-        'underscore'            : 'vendor/underscore',
-        'backbone'              : 'vendor/backbone',
-        'backbone.localStorage' : 'vendor/backbone.localStorage'
-    }
-});
-
 require([
-    'zepto',
-    'underscore',
+    'backbone',
     'defaults',
     'routers/router',
     'views/app-view'
-    ], function($, _, defaults, Router, AppView) {
+    ], function(Backbone, defaults, Router, AppView) {
     'use strict';
 
     $(function(){
