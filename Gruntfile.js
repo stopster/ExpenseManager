@@ -4,13 +4,6 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
-    // uglify: {
-    //   build: {
-    //     src: 'timer.js',
-    //     dest: 'timer.min.js'
-    //   }
-    // },
-
     less : {
         development : {
             options: {
@@ -23,29 +16,31 @@ module.exports = function(grunt) {
     },
 
     watch : {
-        // scripts: {
-        //     files: ['timer.js'],
-        //     tasks: ['less'],
-        //     options: {
-        //         nospawn: true,
-        //     }
-        // },
-
+        options : {
+            livereload: true
+        },
         styles : {
             files: ['**/*.less'],
             tasks : ['less']
         }
     },
 
-
+    connect : {
+        server: {
+            options: {
+                port: 9090
+            }
+        }
+    }
 
   });
 
   // Load the plugins
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-less');
-
+  grunt.loadNpmTasks('grunt-contrib-connect');
   // Default task(s).
-  grunt.registerTask('default', ['watch']);
+  grunt.registerTask('default', ['connect', 'watch']);
 
 };
+
