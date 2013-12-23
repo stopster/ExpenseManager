@@ -6,7 +6,8 @@ require = {
         'zepto'                 : 'vendor/zepto',
         'underscore'            : 'vendor/underscore',
         'backbone'              : 'vendor/backbone',
-        'backbone.localStorage' : 'vendor/backbone.localStorage'
+        'backbone.localStorage' : 'vendor/backbone.localStorage',
+        'text'                  : 'vendor/require.text'
     },
     shim : {
         'underscore' : {
