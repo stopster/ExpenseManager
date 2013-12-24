@@ -192,6 +192,9 @@
 #categories .category-item td {
   padding: 10px 5px;
 }
+#categories .category-item .color {
+  text-align: center;
+}
 #categories .category-item .delete {
   opacity: 0;
 }
@@ -201,6 +204,21 @@
 #categories .category-item .delete .button:hover {
   background-color: #ef8186;
   box-shadow: none;
+}
+.category-icon {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border: solid 4px #fff;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  -webkit-box-shadow: 0 0 5px #cccccc;
+  -moz-box-shadow: 0 0 5px #cccccc;
+  box-shadow: 0 0 5px #cccccc;
 }
 #statistics {
   display: none;

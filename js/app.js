@@ -20,13 +20,16 @@ require([
 
         require(['Chance', 'collections/expences', 'collections/categories'],
             function(Chance, Expences, Categories){
-            var chance = new Chance();
+            var chance = new Chance(),
+                category;
 
             for (var i = 0; i < count; i++) {
+                category = _.sample(Categories.models);
+
                 Expences.create({
                     title    : chance.word(),
                     amount   : chance.natural({max: 1000}),
-                    category : chance.string({length: 4})
+                    category : category.toJSON()
                 });
             }
         });

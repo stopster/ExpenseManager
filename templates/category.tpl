@@ -1,4 +1,6 @@
-<td class="color"><%= color %></td>
+<td class="color">
+    <div class="category-icon" style="background-color: <%= color %>"></div>
+</td>
 <td class="title"><%- title %></td>
 
 <td class="delete">

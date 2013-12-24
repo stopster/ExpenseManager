@@ -1,5 +1,9 @@
 <td class="amount"><%- amount %></td>
-<td class="category"><%= category %></td>
+<td class="category">
+    <div class="category-icon"
+         style="background-color: <%= category.color %>"
+         title="<%= category.title %>"></div>
+</td>
 
 <td class="title"><%- title %></td>
 <td class="date"><%- date %></td>
