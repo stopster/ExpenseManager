@@ -7,7 +7,8 @@ require = {
         'underscore'            : 'vendor/underscore',
         'backbone'              : 'vendor/backbone',
         'backbone.localStorage' : 'vendor/backbone.localStorage',
-        'text'                  : 'vendor/require.text'
+        'text'                  : 'vendor/require.text',
+        'templates'             : '../templates'
     },
     shim : {
         'underscore' : {

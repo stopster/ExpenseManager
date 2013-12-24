@@ -1,4 +1,5 @@
-define(['zepto', 'underscore', 'backbone'], function($, _, Backbone) {
+define(['zepto', 'underscore', 'backbone', 'text!templates/category.tpl'],
+    function($, _, Backbone, Template) {
     'use strict';
 
     return Backbone.View.extend({
@@ -7,7 +8,7 @@ define(['zepto', 'underscore', 'backbone'], function($, _, Backbone) {
 
         className : 'category-item',
 
-        template : _.template( $('#category-view-template').html() ),
+        template : _.template( Template ),
 
         events : {
             'click .delete' : 'delete'
