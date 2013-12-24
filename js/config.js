@@ -19,6 +19,7 @@ require = {
         'backbone' : {
             deps : ['underscore', 'zepto'],
             exports : 'Backbone'
-        }
+        },
+        'backbone.localStorage' : ['backbone']
     }
 };
