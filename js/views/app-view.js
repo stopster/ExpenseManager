@@ -53,15 +53,7 @@ define([
         },
 
         createNewExpence : function() {
-            var amount   = prompt('amount'),
-                category = prompt('category'),
-                title    = prompt('title');
-
-            Expences.create({
-                title    : title,
-                amount   : amount,
-                category : category
-            });
+            GenerateData(1);
         },
 
         addExpence : function(expence) {
