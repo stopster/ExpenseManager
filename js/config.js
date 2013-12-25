@@ -1,4 +1,4 @@
-require = {
+var require = {
     baseUrl: 'js',
 
     paths : {
@@ -10,6 +10,7 @@ require = {
         'text'                  : 'vendor/require.text',
         'templates'             : '../templates'
     },
+
     shim : {
         'underscore' : {
             exports : '_'

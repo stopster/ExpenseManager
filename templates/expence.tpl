@@ -2,7 +2,7 @@
 <td class="category">
     <div class="category-icon"
          style="background-color: <%= category.color %>"
-         title="<%= category.title %>"></div>
+         data-title="<%= category.title %>"></div>
 </td>
 
 <td class="title"><%- title %></td>
