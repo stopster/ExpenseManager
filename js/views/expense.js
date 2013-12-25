@@ -1,4 +1,4 @@
-define(['zepto', 'underscore', 'backbone', 'text!templates/expence.tpl'],
+define(['zepto', 'underscore', 'backbone', 'text!templates/expense.tpl'],
     function($, _, Backbone, Template) {
     'use strict';
 
@@ -6,7 +6,7 @@ define(['zepto', 'underscore', 'backbone', 'text!templates/expence.tpl'],
 
         tagName : 'tr',
 
-        className : 'expence-item',
+        className : 'expense-item',
 
         template : _.template( Template ),
 

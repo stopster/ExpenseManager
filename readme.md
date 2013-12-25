@@ -1,7 +1,7 @@
 ExpenseManager
 ==============
 
-HTML5 Expence Manager App
+HTML5 Expense Manager App
 
 ##Contributing Start Guide
 
@@ -34,7 +34,7 @@ At that stage to generate some random test data, open brower console and type
 ```
 GenerateData( integer );
 ```
-This will generate some test expences.
+This will generate some test expenses.
 
 That's it, now play around with it.
 

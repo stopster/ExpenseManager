@@ -3,14 +3,14 @@ define([
         'underscore',
         'backbone',
 
-        'collections/expences',
+        'collections/expenses',
         'collections/categories',
-        'views/expence',
+        'views/expense',
         'views/category'
        ], function($, _, Backbone,
-            Expences,
+            Expenses,
             Categories,
-            ExpenceView,
+            ExpenseView,
             CategoryView
         ) {
     'use strict';
@@ -19,7 +19,7 @@ define([
         el : '#content-wrapper',
 
         events : {
-            'click #button-add-expence' : 'createNewExpence'
+            'click #button-add-expense' : 'createNewExpense'
         },
 
         initialize : function(defaults) {
@@ -30,19 +30,19 @@ define([
             this.$menu       = $('#main-menu');
 
             this.$sections   = this.$('.content-section');
-            this.$expences   = this.$('#expences');
+            this.$expenses   = this.$('#expenses');
             this.$categories = this.$('#categories');
             this.$statistics = this.$('#statistics');
 
-            this.$expenceList = this.$('#expence-list');
+            this.$expenseList = this.$('#expense-list');
             this.$categoryList = this.$('#category-list');
 
 
-            this.listenTo(Expences,   'add', this.addExpence);
+            this.listenTo(Expenses,   'add', this.addExpense);
             this.listenTo(Categories, 'add', this.addCategory);
 
             this.initCategories(defaults.categories);
-            this.initExpences();
+            this.initExpenses();
 
             this.render();
         },
@@ -52,13 +52,13 @@ define([
             //this.deliverSection(app.State || '');
         },
 
-        createNewExpence : function() {
+        createNewExpense : function() {
             GenerateData(1);
         },
 
-        addExpence : function(expence) {
-            var view = new ExpenceView({ model : expence });
-            this.$expenceList.prepend( view.render().el );
+        addExpense : function(expense) {
+            var view = new ExpenseView({ model : expense });
+            this.$expenseList.prepend( view.render().el );
         },
 
         addCategory : function(category) {
@@ -66,8 +66,8 @@ define([
             this.$categoryList.prepend( view.render().el );
         },
 
-        initExpences : function() {
-            Expences.fetch();
+        initExpenses : function() {
+            Expenses.fetch();
         },
 
         initCategories : function(categories) {
@@ -81,9 +81,9 @@ define([
         },
 
         deliverSection : function(section) {
-            // go to #expences by default
+            // go to #expenses by default
             if (!section) {
-                Backbone.history.navigate('#/expences');
+                Backbone.history.navigate('#/expenses');
                 return;
             }
 

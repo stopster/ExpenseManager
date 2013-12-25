@@ -1,7 +1,7 @@
 {
-  "name": "ExpenceManager",
+  "name": "ExpenseManager",
   "version": "0.0.0",
-  "description": "Expence Manager Application",
+  "description": "Expense Manager Application",
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

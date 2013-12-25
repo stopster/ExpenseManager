@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,700);
 .button {
   position: relative;
   background-color: #323544;
@@ -145,32 +146,32 @@
   border-right-color: #F6F6F6;
   background: none;
 }
-#expence-list {
+#expense-list {
   max-width: 800px;
   margin: 0 auto;
 }
-#expence-list .expence-item {
+#expense-list .expense-item {
   padding: 10px 0;
 }
-#expence-list .expence-item:nth-child(odd) {
+#expense-list .expense-item:nth-child(odd) {
   background-color: #fcfcfc;
 }
-#expence-list .expence-item:hover .delete {
+#expense-list .expense-item:hover .delete {
   opacity: 1;
 }
-#expence-list .expence-item td {
+#expense-list .expense-item td {
   padding: 10px 5px;
 }
-#expence-list .expence-item .amount {
+#expense-list .expense-item .amount {
   font-size: 24pt;
 }
-#expence-list .expence-item .delete {
+#expense-list .expense-item .delete {
   opacity: 0;
 }
-#expence-list .expence-item .delete .button {
+#expense-list .expense-item .delete .button {
   background-color: #E9545A;
 }
-#expence-list .expence-item .delete .button:hover {
+#expense-list .expense-item .delete .button:hover {
   background-color: #ef8186;
   box-shadow: none;
 }
