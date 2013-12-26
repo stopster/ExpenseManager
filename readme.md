@@ -3,6 +3,8 @@ ExpenseManager
 
 HTML5 Expense Manager App
 
+[demo page](http://husa.github.io/ExpenseManager)
+
 ##Contributing Start Guide
 
 In order to do smth you need to have [Node.js](http://nodejs.org/) installed.
