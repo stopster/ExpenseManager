@@ -1,9 +1,10 @@
 require([
+    'zepto',
     'backbone',
     'defaults',
     'routers/router',
     'views/app-view'
-    ], function(Backbone, defaults, Router, AppView) {
+    ], function($, Backbone, defaults, Router, AppView) {
     'use strict';
 
     $(function(){
@@ -14,12 +15,16 @@ require([
         Backbone.history.start();
     });
 
-
     // generate random data
     window.GenerateData = function(count) {
 
-        require(['Chance', 'collections/expenses', 'collections/categories'],
-            function(Chance, Expenses, Categories){
+        require([
+                'underscore',
+                'Chance',
+                'collections/expenses',
+                'collections/categories'
+            ],
+            function(_, Chance, Expenses, Categories){
             var chance = new Chance(),
                 category;
 

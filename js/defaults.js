@@ -10,5 +10,5 @@ define(function(){
             { title : 'Household',      color : '#F39C12' },
             { title : 'Eating Out',     color : '#9B59B6' }
         ]
-    }
+    };
 });

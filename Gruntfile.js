@@ -22,7 +22,33 @@ module.exports = function(grunt) {
         styles : {
             files: ['**/*.less'],
             tasks : ['less']
+        },
+        js : {
+            files : ['js/**/*.js'],
+            tasks : ['jshint']
         }
+    },
+
+    jshint : {
+        all : {
+            options : {
+                ignores : ['js/vendor/*', 'js/config.js'],
+                undef: true,
+                unused: true,
+                newcap : false,
+                debug : true,
+                globals : {
+                    require : true,
+                    define : false,
+                    console : false,
+                    window : false
+                }
+            },
+            files : {
+                src : ['js/**/*.js']
+            }
+        }
+
     },
 
     connect : {
@@ -32,15 +58,14 @@ module.exports = function(grunt) {
             }
         }
     }
-
   });
 
   // Load the plugins
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-connect');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
   // Default task(s).
   grunt.registerTask('default', ['connect', 'watch']);
 
 };
-

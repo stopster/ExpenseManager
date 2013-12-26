@@ -53,7 +53,7 @@ define([
         },
 
         createNewExpense : function() {
-            GenerateData(1);
+            window.GenerateData(1);
         },
 
         addExpense : function(expense) {
