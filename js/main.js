@@ -27,8 +27,7 @@ require([
     'backbone',
     'defaults',
     'app',
-    'routers/router',
-    'views/app-view'
+    'routers/router'
 ], function($, Backbone, defaults, App, Router) {
     'use strict';
 
