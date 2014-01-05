@@ -1,8 +1,8 @@
-define(['zepto', 'underscore', 'backbone', 'text!templates/category.tpl'],
-    function($, _, Backbone, Template) {
+define(['zepto', 'underscore', 'backbone', 'backbone.marionette', 'text!templates/category.tpl'],
+    function($, _, Backbone, Marionette, Template) {
     'use strict';
 
-    return Backbone.View.extend({
+    return Marionette.ItemView.extend({
 
         tagName : 'tr',
 
@@ -16,13 +16,6 @@ define(['zepto', 'underscore', 'backbone', 'text!templates/category.tpl'],
 
         initialize : function() {
             this.listenTo(this.model, 'destroy', this.remove);
-        },
-
-        render : function() {
-
-            this.$el.html( this.template( this.model.toJSON() ) );
-
-            return this;
         },
 
         delete : function() {

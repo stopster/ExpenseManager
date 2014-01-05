@@ -1,8 +1,8 @@
-define(['zepto', 'underscore', 'backbone', 'text!templates/expense.tpl'],
-    function($, _, Backbone, Template) {
+define(['zepto', 'underscore', 'backbone', 'backbone.marionette', 'text!templates/expense.tpl'],
+    function($, _, Backbone, Marionette, Template) {
     'use strict';
 
-    return Backbone.View.extend({
+    return Marionette.ItemView.extend({
 
         tagName : 'tr',
 

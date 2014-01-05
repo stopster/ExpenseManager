@@ -119,6 +119,11 @@
 #main-menu #menu-items menu .menu-item a {
   position: absolute;
   height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  padding-left: 40px;
+  box-sizing: border-box;
   text-decoration: none;
   color: inherit;
 }
@@ -147,8 +152,11 @@
   background: none;
 }
 #expense-list {
+  width: 80%;
   max-width: 800px;
   margin: 0 auto;
+  border-spacing: 0;
+  border-collapse: collapse;
 }
 #expense-list .expense-item {
   padding: 10px 0;
@@ -175,33 +183,35 @@
   background-color: #ef8186;
   box-shadow: none;
 }
-#categories {
-  display: none;
+#category-list {
+  width: 80%;
   max-width: 800px;
   margin: 0 auto;
+  border-spacing: 0;
+  border-collapse: collapse;
 }
-#categories .category-item {
+#category-list .category-item {
   padding: 10px 0;
 }
-#categories .category-item:nth-child(odd) {
+#category-list .category-item:nth-child(odd) {
   background-color: #fcfcfc;
 }
-#categories .category-item:hover .delete {
+#category-list .category-item:hover .delete {
   opacity: 1;
 }
-#categories .category-item td {
+#category-list .category-item td {
   padding: 10px 5px;
 }
-#categories .category-item .color {
+#category-list .category-item .color {
   text-align: center;
 }
-#categories .category-item .delete {
+#category-list .category-item .delete {
   opacity: 0;
 }
-#categories .category-item .delete .button {
+#category-list .category-item .delete .button {
   background-color: #E9545A;
 }
-#categories .category-item .delete .button:hover {
+#category-list .category-item .delete .button:hover {
   background-color: #ef8186;
   box-shadow: none;
 }

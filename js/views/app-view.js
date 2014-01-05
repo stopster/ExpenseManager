@@ -1,101 +1,101 @@
-define([
-        'zepto',
-        'underscore',
-        'backbone',
+// define([
+//         'zepto',
+//         'underscore',
+//         'backbone',
 
-        'collections/expenses',
-        'collections/categories',
-        'views/expense',
-        'views/category'
-       ], function($, _, Backbone,
-            Expenses,
-            Categories,
-            ExpenseView,
-            CategoryView
-        ) {
-    'use strict';
+//         'collections/expenses',
+//         'collections/categories',
+//         'views/expense',
+//         'views/category'
+//        ], function($, _, Backbone,
+//             Expenses,
+//             Categories,
+//             ExpenseView,
+//             CategoryView
+//         ) {
+//     'use strict';
 
-    var AppView = Backbone.View.extend({
-        el : '#content-wrapper',
+//     var AppView = Backbone.View.extend({
+//         el : '#content-wrapper',
 
-        events : {
-            'click #button-add-expense' : 'createNewExpense'
-        },
+//         events : {
+//             'click #button-add-expense' : 'createNewExpense'
+//         },
 
-        initialize : function(defaults) {
+//         initialize : function(defaults) {
 
-            console.log('App View initialize');
+//             console.log('App View initialize');
 
-            this.$content    = this.$('#content');
-            this.$menu       = $('#main-menu');
+//             this.$content    = this.$('#content');
+//             this.$menu       = $('#main-menu');
 
-            this.$sections   = this.$('.content-section');
-            this.$expenses   = this.$('#expenses');
-            this.$categories = this.$('#categories');
-            this.$statistics = this.$('#statistics');
+//             this.$sections   = this.$('.content-section');
+//             this.$expenses   = this.$('#expenses');
+//             this.$categories = this.$('#categories');
+//             this.$statistics = this.$('#statistics');
 
-            this.$expenseList = this.$('#expense-list');
-            this.$categoryList = this.$('#category-list');
+//             this.$expenseList = this.$('#expense-list');
+//             this.$categoryList = this.$('#category-list');
 
 
-            this.listenTo(Expenses,   'add', this.addExpense);
-            this.listenTo(Categories, 'add', this.addCategory);
+//             this.listenTo(Expenses,   'add', this.addExpense);
+//             this.listenTo(Categories, 'add', this.addCategory);
 
-            this.initCategories(defaults.categories);
-            this.initExpenses();
+//             this.initCategories(defaults.categories);
+//             this.initExpenses();
 
-            this.render();
-        },
+//             this.render();
+//         },
 
-        render : function(){
-            Backbone.Events.on('deliverSection', this.deliverSection, this);
-            //this.deliverSection(app.State || '');
-        },
+//         render : function(){
+//             Backbone.Events.on('deliverSection', this.deliverSection, this);
+//             //this.deliverSection(app.State || '');
+//         },
 
-        createNewExpense : function() {
-            window.GenerateData(1);
-        },
+//         createNewExpense : function() {
+//             window.GenerateData(1);
+//         },
 
-        addExpense : function(expense) {
-            var view = new ExpenseView({ model : expense });
-            this.$expenseList.prepend( view.render().el );
-        },
+//         addExpense : function(expense) {
+//             var view = new ExpenseView({ model : expense });
+//             this.$expenseList.prepend( view.render().el );
+//         },
 
-        addCategory : function(category) {
-            var view = new CategoryView({ model : category });
-            this.$categoryList.prepend( view.render().el );
-        },
+//         addCategory : function(category) {
+//             var view = new CategoryView({ model : category });
+//             this.$categoryList.prepend( view.render().el );
+//         },
 
-        initExpenses : function() {
-            Expenses.fetch();
-        },
+//         initExpenses : function() {
+//             Expenses.fetch();
+//         },
 
-        initCategories : function(categories) {
-            Categories.fetch();
+//         initCategories : function(categories) {
+//             Categories.fetch();
 
-            if (Categories.size() === 0) {
-                _.each(categories, function(category) {
-                    Categories.create(category);
-                });
-            }
-        },
+//             if (Categories.size() === 0) {
+//                 _.each(categories, function(category) {
+//                     Categories.create(category);
+//                 });
+//             }
+//         },
 
-        deliverSection : function(section) {
-            // go to #expenses by default
-            if (!section) {
-                Backbone.history.navigate('#/expenses');
-                return;
-            }
+//         deliverSection : function(section) {
+//             // go to #expenses by default
+//             if (!section) {
+//                 Backbone.history.navigate('#/expenses');
+//                 return;
+//             }
 
-            // show corresponding section
-            this.$sections.hide();
-            this['$' + section].show();
+//             // show corresponding section
+//             this.$sections.hide();
+//             this['$' + section].show();
 
-            // handle menu
-            this.$menu.find('.selected').removeClass('selected');
-            this.$menu.find('#menu-item-' + section).addClass('selected');
-        }
-    });
+//             // handle menu
+//             this.$menu.find('.selected').removeClass('selected');
+//             this.$menu.find('#menu-item-' + section).addClass('selected');
+//         }
+//     });
 
-    return AppView;
-});
+//     return AppView;
+// });
