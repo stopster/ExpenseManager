@@ -5,7 +5,7 @@ define([
     'use strict';
 
     return Marionette.CollectionView.extend({
-        tagName : 'table',
+        tagName : 'ul',
         id : 'category-list',
 
         itemView : CategoryView
