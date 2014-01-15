@@ -1,13 +1,14 @@
-define(['zepto', 'underscore', 'backbone'], function($, _, Backbone) {
+define(['zepto', 'underscore', 'backbone', 'backbone.marionette', 'text!templates/category.tpl'],
+    function($, _, Backbone, Marionette, Template) {
     'use strict';
 
-    return Backbone.View.extend({
+    return Marionette.ItemView.extend({
 
-        tagName : 'tr',
+        tagName : 'li',
 
         className : 'category-item',
 
-        template : _.template( $('#category-view-template').html() ),
+        template : _.template( Template ),
 
         events : {
             'click .delete' : 'delete'
@@ -15,13 +16,6 @@ define(['zepto', 'underscore', 'backbone'], function($, _, Backbone) {
 
         initialize : function() {
             this.listenTo(this.model, 'destroy', this.remove);
-        },
-
-        render : function() {
-
-            this.$el.html( this.template( this.model.toJSON() ) );
-
-            return this;
         },
 
         delete : function() {

@@ -1,7 +1,7 @@
 {
-  "name": "ExpenceManager",
+  "name": "ExpenseManager",
   "version": "0.0.0",
-  "description": "Expence Manager Application",
+  "description": "Expense Manager Application",
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -19,6 +19,7 @@
     "grunt-cli": "~0.1.11",
     "grunt-contrib-less": "~0.8.2",
     "grunt-contrib-watch": "~0.5.3",
-    "grunt-contrib-connect": "~0.5.0"
+    "grunt-contrib-connect": "~0.5.0",
+    "grunt-contrib-jshint": "~0.7.2"
   }
 }

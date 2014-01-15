@@ -1,4 +1,4 @@
-require = {
+var require = {
     baseUrl: 'js',
 
     paths : {
@@ -6,9 +6,12 @@ require = {
         'zepto'                 : 'vendor/zepto',
         'underscore'            : 'vendor/underscore',
         'backbone'              : 'vendor/backbone',
+        'backbone.marionette'   : 'vendor/backbone.marionette',
         'backbone.localStorage' : 'vendor/backbone.localStorage',
-        'text'                  : 'vendor/require.text'
+        'text'                  : 'vendor/require.text',
+        'templates'             : '../templates'
     },
+
     shim : {
         'underscore' : {
             exports : '_'
@@ -19,6 +22,10 @@ require = {
         'backbone' : {
             deps : ['underscore', 'zepto'],
             exports : 'Backbone'
+        },
+        'backbone.marionette' : {
+            deps : ['zepto', 'underscore', 'backbone'],
+            exports: 'Marionette'
         },
         'backbone.localStorage' : ['backbone']
     }

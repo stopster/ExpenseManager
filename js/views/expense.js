@@ -1,13 +1,14 @@
-define(['zepto', 'underscore', 'backbone'], function($, _, Backbone) {
+define(['zepto', 'underscore', 'backbone', 'backbone.marionette', 'text!templates/expense.tpl'],
+    function($, _, Backbone, Marionette, Template) {
     'use strict';
 
-    return Backbone.View.extend({
+    return Marionette.ItemView.extend({
 
         tagName : 'div',
 
-        className : 'expence-item',
+        className : 'expense-item',
 
-        template : _.template( $('#expence-view-template').html() ),
+        template : _.template( Template ),
 
         events : {
             'click .delete' : 'delete'
