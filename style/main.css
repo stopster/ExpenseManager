@@ -147,11 +147,13 @@
   background: none;
 }
 #expence-list {
-  max-width: 800px;
   margin: 0 auto;
 }
 #expence-list .expence-item {
-  padding: 10px 0;
+  padding: 10px 5px;
+  display: inline-block;
+  width: 45%;
+  height: 280px;
 }
 #expence-list .expence-item:nth-child(odd) {
   background-color: #fcfcfc;
@@ -159,21 +161,64 @@
 #expence-list .expence-item:hover .delete {
   opacity: 1;
 }
-#expence-list .expence-item td {
-  padding: 10px 5px;
-}
 #expence-list .expence-item .amount {
-  font-size: 24pt;
+  width: 50%;
+  font-size: 2.5em;
+  float: left;
 }
-#expence-list .expence-item .delete {
-  opacity: 0;
+#expence-list .expence-item .category {
+  float: left;
+  width: 35%;
+  height: 45%;
+  margin: -10px 10px 0 0;
+  border: 1px solid red;
 }
-#expence-list .expence-item .delete .button {
-  background-color: #E9545A;
+#expence-list .expence-item .options-wrapper {
+  float: right;
+  width: 10%;
+  height: 30px;
+  overflow: hidden;
 }
-#expence-list .expence-item .delete .button:hover {
-  background-color: #ef8186;
-  box-shadow: none;
+#expence-list .expence-item .options-wrapper:hover {
+  height: auto;
+  overflow: visible;
+}
+#expence-list .expence-item .options-wrapper .arrow.down {
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 30px solid red;
+}
+#expence-list .expence-item .options-wrapper .arrow.up {
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 30px solid red;
+}
+#expence-list .expence-item .options-wrapper .options {
+  width: 150%;
+  position: relative;
+  top: 5px;
+  left: 10px;
+  border: 1px solid grey;
+  background: #efefef;
+  cursor: default;
+}
+#expence-list .expence-item .options-wrapper .option:hover {
+  background: #ccc;
+}
+#expence-list .expence-item .title {
+  float: left;
+  width: 100%;
+  min-height: 4em;
+}
+#expence-list .expence-item .date {
+  float: left;
+  width: 100%;
+  bottom: 0;
+  text-align: right;
 }
 #categories {
   display: none;

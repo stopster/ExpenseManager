@@ -3,7 +3,7 @@ define(['zepto', 'underscore', 'backbone'], function($, _, Backbone) {
 
     return Backbone.View.extend({
 
-        tagName : 'tr',
+        tagName : 'div',
 
         className : 'expence-item',
 
