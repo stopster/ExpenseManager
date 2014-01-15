@@ -1,14 +1,24 @@
 #expence-list {
+    // max-width: 800px;
+    margin: 0 auto;
+    
     .expence-item {
         padding: 10px 5px;
-        margin: 5px 15px 0 0;
         display: inline-block;
-        width: 360px;
-        height: 200px;
-        background-color: #fcfcfc;
+        width: 45%;
+        height: 280px;
 
+        &:nth-child(odd) {
+            background-color: #fcfcfc;
+        }
+
+        &:hover {
+            .delete {
+                opacity: 1;
+            }
+        }
         .amount {
-            width: 55%;
+            width: 50%;
             font-size: 2.5em;
             float: left;
         }
@@ -17,35 +27,43 @@
             width: 35%;
             height: 45%;
             margin: -10px 10px 0 0;
-            background: orange;
+            border: 1px solid red;
         }
         .options-wrapper{
             float: right;
-            width: 25px;
-            height: 14px;
+            width: 10%;
+            height: 30px;
             overflow: hidden;
-
-            .arrow{
-                width: 0;
-                height: 0;
-                border-left: 10px solid transparent;
-                border-right: 10px solid transparent;
-                border-top: 15px solid grey;
-            }
-
+            
             &:hover{
                 height: auto;
                 overflow: visible;
             }
 
+            .arrow{
+                &.down{
+                    width: 0;
+                    height: 0;
+                    border-left: 15px solid transparent;
+                    border-right: 15px solid transparent;
+                    border-top: 30px solid red;
+                }
+                &.up{
+                    width: 0;
+                    height: 0;
+                    border-left: 15px solid transparent;
+                    border-right: 15px solid transparent;
+                    border-bottom: 30px solid red;
+                }
+            }
             .options{
-                width: 80px;
+                width: 150%;
                 position: relative;
                 top: 5px;
                 left: 10px;
                 border: 1px solid grey;
                 background: #efefef;
-                cursor: pointer;
+                cursor: default;
             }
             .option:hover{
                background: #ccc;  
@@ -55,7 +73,6 @@
             float: left;
             width: 100%;
             min-height: 4em;
-            margin: 0.25em 0;
         }
         .date {
             float: left;
