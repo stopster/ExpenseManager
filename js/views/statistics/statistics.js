@@ -1,7 +1,7 @@
 define([
     'underscore',
     'backbone.marionette',
-    'text!templates/statistics.tpl'
+    'text!templates/statistics/statistics.tpl'
 ], function(_, Marionette, Template) {
     'use strict';
 

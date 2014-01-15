@@ -1,7 +1,7 @@
 define([
     'underscore',
     'backbone.marionette',
-    'text!templates/header.expenses.tpl'
+    'text!templates/categories/header.categories.tpl'
 ], function(_, Marionette, Template) {
     'use strict';
 
@@ -9,11 +9,11 @@ define([
         template : _.template(Template),
 
         events : {
-            'click #button-add-expense' : 'addExpense'
+            'click #button-add-category' : 'addCategory'
         },
 
-        addExpense : function() {
-            window.GenerateData(1);
+        addCategory : function() {
+            console.log('addCategory');
         }
     });
 });

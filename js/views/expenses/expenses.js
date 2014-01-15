@@ -1,7 +1,7 @@
 define([
     'backbone.marionette',
-    'views/expense',
-    'views/expenses.empty'
+    'views/expenses/expense',
+    'views/expenses/expenses.empty'
 ], function(Marionette, ExpenseView, ExpensesEmptyView) {
     'use strict';
 

@@ -1,6 +1,6 @@
 define([
     'backbone.marionette',
-    'views/category'
+    'views/categories/category'
 ], function(Marionette, CategoryView) {
     'use strict';
 

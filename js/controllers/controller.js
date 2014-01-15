@@ -9,13 +9,13 @@ define(['zepto',
         'collections/expenses',
         'collections/categories',
 
-        'views/expenses',
-        'views/categories',
-        'views/statistics',
+        'views/expenses/expenses',
+        'views/categories/categories',
+        'views/statistics/statistics',
 
-        'views/header.expenses',
-        'views/header.categories',
-        'views/header.statistics'
+        'views/expenses/header.expenses',
+        'views/categories/header.categories',
+        'views/statistics/header.statistics'
 ], function($, _, Backbone, Marionette, defaults, App, ExpensesCollection, CategoriesCollection, ExpensesView, CategoriesView, StatisticsView, ExpensesHeaderView, CategoriesHeaderView, StatisticsHeaderView) {
     'use strict';
 
