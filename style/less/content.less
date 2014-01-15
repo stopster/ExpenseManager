@@ -1,3 +1,4 @@
+@import 'content.header.less';
 @import 'expenses/expenses';
 @import 'categories/categories';
 @import 'statistics/statistics';
@@ -9,15 +10,9 @@
         height: @content-header-height;
         overflow: hidden;
         background: @color-content-header-background;
-
-        .button {
-            margin: 10px;
-            float: right;
-        }
     }
 
     #content {
-        padding: 20px;
         font-size: 16pt;
         .box-sizing(border-box);
         height: calc(~"100% - " @content-header-height);

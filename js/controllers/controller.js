@@ -13,10 +13,8 @@ define(['zepto',
         'views/categories/categories',
         'views/statistics/statistics',
 
-        'views/expenses/header.expenses',
-        'views/categories/header.categories',
-        'views/statistics/header.statistics'
-], function($, _, Backbone, Marionette, defaults, App, ExpensesCollection, CategoriesCollection, ExpensesView, CategoriesView, StatisticsView, ExpensesHeaderView, CategoriesHeaderView, StatisticsHeaderView) {
+        'views/header'
+], function($, _, Backbone, Marionette, defaults, App, ExpensesCollection, CategoriesCollection, ExpensesView, CategoriesView, StatisticsView, HeaderView) {
     'use strict';
 
     var Controller = Marionette.Controller.extend({
@@ -24,6 +22,7 @@ define(['zepto',
 
             this.initExpenses();
             this.initCategories();
+            this.handleHeader();
 
             this.views = {
                 content : {
@@ -39,13 +38,7 @@ define(['zepto',
                         view : StatisticsView,
                         collection : null
                     }
-                },
-                header : {
-                    expenses   : ExpensesHeaderView,
-                    categories : CategoriesHeaderView,
-                    statistics : StatisticsHeaderView
                 }
-
             };
         },
 
@@ -76,8 +69,8 @@ define(['zepto',
             App.menuRegion.$el.find('#menu-item-' + section).addClass('selected');
         },
 
-        handleHeader : function(section) {
-            App.contentHeaderRegion.show(new this.views.header[section]());
+        handleHeader : function() {
+            App.contentHeaderRegion.show(new HeaderView());
         },
 
         initExpenses : function() {

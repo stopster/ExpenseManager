@@ -1,13 +1,25 @@
 define([
+    'underscore',
     'backbone.marionette',
-    'views/categories/category'
-], function(Marionette, CategoryView) {
+    'views/categories/category',
+    'text!templates/categories/categories.tpl'
+], function(_, Marionette, CategoryView, Template) {
     'use strict';
 
-    return Marionette.CollectionView.extend({
-        tagName : 'ul',
-        id : 'category-list',
+    return Marionette.CompositeView.extend({
 
-        itemView : CategoryView
+        events : {
+            'click #button-add-category' : 'addCategory'
+        },
+
+        template : _.template(Template),
+
+        itemView : CategoryView,
+
+        itemViewContainer : '#categories-list',
+
+        addCategory : function() {
+            console.log('add category');
+        }
     });
 });
