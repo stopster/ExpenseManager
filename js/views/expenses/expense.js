@@ -1,4 +1,9 @@
-define(['zepto', 'underscore', 'backbone', 'backbone.marionette', 'text!templates/expense.tpl'],
+define([
+    'zepto',
+    'underscore',
+    'backbone',
+    'backbone.marionette',
+    'text!templates/expenses/expense.tpl'],
     function($, _, Backbone, Marionette, Template) {
     'use strict';
 

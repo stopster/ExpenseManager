@@ -1,5 +1,10 @@
-define(['zepto', 'underscore', 'backbone', 'backbone.marionette', 'text!templates/category.tpl'],
-    function($, _, Backbone, Marionette, Template) {
+define([
+    'zepto',
+    'underscore',
+    'backbone',
+    'backbone.marionette',
+    'text!templates/categories/category.tpl'
+], function($, _, Backbone, Marionette, Template) {
     'use strict';
 
     return Marionette.ItemView.extend({

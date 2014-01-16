@@ -1,11 +1,11 @@
 define([
     'underscore',
     'backbone.marionette',
-    'text!templates/header.statistics.tpl'
+    'text!templates/expenses/expenses.empty.tpl'
 ], function(_, Marionette, Template) {
     'use strict';
 
     return Marionette.ItemView.extend({
-        template : _.template(Template)
+        template : _.template(Template),
     });
 });
