@@ -1,4 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Raleway:400,700);
+@import '../../js/vendor/fancySelect.css';
 .button {
   position: relative;
   background-color: #323544;
@@ -244,11 +245,122 @@
 }
 #categories-content #add-category-wrapper {
   clear: both;
-  overflow: auto;
 }
 #categories-content #add-category-wrapper #button-add-category {
   margin: 10px;
   float: right;
+}
+#categories-content #add-category-wrapper #add-category-container {
+  clear: both;
+}
+#categories-content #add-category-wrapper #add-category-container #add-category {
+  width: 100%;
+  max-width: 400px;
+  margin: 20px auto;
+  background-color: #FCFCFC;
+  box-sizing: border-box;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  border: solid 1px #ccc;
+}
+#categories-content #add-category-wrapper #add-category-container #add-category .input-container {
+  padding: 20px 10px;
+}
+#categories-content #add-category-wrapper #add-category-container #add-category .input-container > * {
+  display: inline-block;
+  height: 42px;
+  vertical-align: top;
+  box-sizing: border-box;
+}
+#categories-content #add-category-wrapper #add-category-container #add-category .input-container #add-category-input-title {
+  padding: 6px;
+  width: 320px;
+  margin: 0;
+  font-size: 0.9em;
+  color: #444;
+  outline: none;
+  border: solid 1px #BFC3DA;
+  border-radius: 4px 0 0 4px;
+}
+#categories-content #add-category-wrapper #add-category-container #add-category .input-container #add-category-input-title:focus {
+  border-color: #7E8FE0;
+  box-shadow: 0 0 2px #7E8FE0;
+}
+#categories-content #add-category-wrapper #add-category-container #add-category .input-container .fancy-select {
+  border: none;
+  outline: none;
+  margin-left: -1px;
+}
+#categories-content #add-category-wrapper #add-category-container #add-category .input-container .fancy-select .trigger {
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 6px;
+  padding-right: 20px;
+  background: none;
+  border: solid 1px #BFC3DA;
+  border-radius: 0 4px 4px 0;
+  outline: none;
+  box-shadow: none;
+}
+#categories-content #add-category-wrapper #add-category-container #add-category .input-container .fancy-select .trigger:after {
+  top: 46%;
+  right: 4px;
+}
+#categories-content #add-category-wrapper #add-category-container #add-category .input-container .fancy-select .trigger.open,
+#categories-content #add-category-wrapper #add-category-container #add-category .input-container .fancy-select .trigger:focus,
+#categories-content #add-category-wrapper #add-category-container #add-category .input-container .fancy-select .trigger:active {
+  border-color: #7E8FE0;
+  box-shadow: 0 0 2px #7E8FE0;
+}
+#categories-content #add-category-wrapper #add-category-container #add-category .input-container .fancy-select .options {
+  top: 45px;
+  background: #fff;
+  border: solid 1px;
+  border-top: solid 1px;
+  border-color: #7E8FE0;
+  box-shadow: none;
+}
+#categories-content #add-category-wrapper #add-category-container #add-category .input-container .fancy-select .options .hover {
+  background: rgba(43, 134, 134, 0.2);
+}
+#categories-content #add-category-wrapper #add-category-container #add-category .input-container .fancy-select .options .selected {
+  background: rgba(43, 134, 134, 0.3);
+}
+#categories-content #add-category-wrapper #add-category-container #add-category .input-container .category-icon {
+  width: 20px;
+  height: 20px;
+  border-width: 2px;
+}
+#categories-content #add-category-wrapper #add-category-container #add-category .buttons-container {
+  padding: 10px;
+  text-align: center;
+  background: #f8f8f8;
+  border-top: solid 1px #ccc;
+}
+#categories-content #add-category-wrapper #add-category-container #add-category .buttons-container #add-category-save {
+  background-color: #2ECC71;
+  border-color: #58D68D;
+}
+#categories-content #add-category-wrapper #add-category-container #add-category .buttons-container #add-category-save:hover,
+#categories-content #add-category-wrapper #add-category-container #add-category .buttons-container #add-category-save:focus,
+#categories-content #add-category-wrapper #add-category-container #add-category .buttons-container #add-category-save:active {
+  background-color: #58D68D;
+  box-shadow: none;
+}
+#categories-content #add-category-wrapper #add-category-container #add-category .buttons-container #add-category-cancel {
+  background-color: #E74C3C;
+  border-color: #E74C3C;
+}
+#categories-content #add-category-wrapper #add-category-container #add-category .buttons-container #add-category-cancel:hover,
+#categories-content #add-category-wrapper #add-category-container #add-category .buttons-container #add-category-cancel:focus,
+#categories-content #add-category-wrapper #add-category-container #add-category .buttons-container #add-category-cancel:active {
+  background-color: #EC7063;
+  box-shadow: none;
 }
 #categories-content #categories-list {
   width: 80%;
@@ -263,6 +375,7 @@
   position: relative;
   width: 100%;
   padding: 10px;
+  box-sizing: border-box;
 }
 #categories-content #categories-list .category-item:nth-child(odd) {
   background-color: #fcfcfc;
