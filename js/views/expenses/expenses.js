@@ -21,15 +21,19 @@ define([
 
         emptyView : ExpensesEmptyView,
 
-        initialize: function(){
+        renderEmptyExpense: function(){
+            // Add empty fiels for expense
             this.newItemView = new ExpenseView({ isNew: true });
             this.$("#add-expense-container").html(this.newItemView.render(true).el);
         },
 
+        onRender: function(){
+            this.renderEmptyExpense();
+        },
+
         addExpense : function() {
-            var savedExpense = this.newItemView.saveModel();
-            var savedExpenseView = new ExpenseView({ model: savedExpense });
-            this.$(this.itemViewContainer).append(savedExpenseView.render().el);
+            this.collection.create(this.newItemView.save());
+            this.renderEmptyExpense();
         }
     });
 });

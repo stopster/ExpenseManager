@@ -4,9 +4,11 @@ define([
     'backbone',
     'backbone.marionette',
     'models/expense',
+    'collections/categories',
     'text!templates/expenses/expense.tpl',
-    'text!templates/expenses/expense.new.tpl'],
-    function($, _, Backbone, Marionette, Expense, Template, NewTemplate) {
+    'text!templates/expenses/expense.new.tpl',
+    ],
+    function($, _, Backbone, Marionette, Expense, CategoriesCollection, Template, NewTemplate) {
     'use strict';
 
     return Marionette.ItemView.extend({
@@ -35,15 +37,14 @@ define([
                 template;
             if(isNew){
                 template = this.newTemplate;
-                // TODO: get real categories
-                renderData.categoriesList = ["1", "2", "3"];
+                renderData.categoriesList = CategoriesCollection.models;
             } else {
                 template = this.template;
                 var date = this.transformDate(this.model.get('date'));
                 renderData = _.extend(this.model.toJSON(), {'date' : date});
             }
 
-            this.$el.html( template(renderData) );
+            this.$el.html( template({ data: renderData }) );
 
             return this;
         },
@@ -77,10 +78,14 @@ define([
             this.model.destroy();
         },
 
-        saveModel: function(){
+        save: function(){
+            var category = this.$("#category")[0];
             this.model.set({
                 amount: this.$("#amount").val(),
-                category: this.$("#category").val(),
+                category: {
+                    title: category.value,
+                    color: category.options[category.selectedIndex].attributes["data-color"].value
+                },
                 title: this.$("#title").val(),
                 date: this.$("#date").val()
             });
