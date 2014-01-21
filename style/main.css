@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Raleway:400,700);
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,100,700);
 @import '../../js/vendor/fancySelect.css';
 .button {
   position: relative;
@@ -89,6 +89,7 @@
 #main-menu #menu-items {
   color: #9898a0;
   text-transform: uppercase;
+  font-family: 'Raleway', sans-serif;
   font-size: 14pt;
   font-weight: bold;
 }
@@ -171,46 +172,60 @@
   float: right;
 }
 #expenses-content #expenses-list {
-  width: 80%;
-  max-width: 800px;
+  width: 90%;
   margin: 10px auto;
   border-spacing: 0;
   border-collapse: collapse;
 }
 #expenses-content #expenses-list .expense-item {
-  padding: 10px 15px;
-  margin: 5px 0 0 0;
+  position: relative;
   display: inline-block;
-  width: 350px;
-  height: 200px;
-  background-color: #fcfcfc;
-}
-#expenses-content #expenses-list .expense-item:nth-child(odd) {
-  margin-right: 15px;
+  padding: 10px;
+  margin: 10px;
+  width: 300px;
+  background-color: #FCFCFC;
+  box-sizing: border-box;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  border: solid 1px #ccc;
 }
 #expenses-content #expenses-list .expense-item .amount {
-  width: 55%;
-  font-size: 2.5em;
+  width: 75%;
   float: left;
+  font-family: 'Raleway', sans-serif;
+  font-size: 3em;
+  font-weight: 100;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 #expenses-content #expenses-list .expense-item .category-icon {
-  float: left;
-  width: 30%;
-  height: 45%;
-  margin: -10px 0 0 0;
+  position: absolute;
+  top: -1px;
+  right: 40px;
+  height: 50px;
+  border-style: solid;
+  border-width: 20px;
+  border-color: transparent;
+  border-bottom-color: rgba(0, 0, 0, 0) !important;
 }
 #expenses-content #expenses-list .expense-item .options-wrapper {
-  float: right;
-  width: 25px;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 12px;
   height: 14px;
   overflow: hidden;
+  z-index: 100;
 }
 #expenses-content #expenses-list .expense-item .options-wrapper .arrow {
   width: 0;
   height: 0;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-top: 15px solid grey;
+  border: solid 6px transparent;
+  border-top: 10px solid grey;
 }
 #expenses-content #expenses-list .expense-item .options-wrapper:hover {
   height: auto;
@@ -219,8 +234,8 @@
 #expenses-content #expenses-list .expense-item .options-wrapper .options {
   width: 80px;
   position: relative;
-  top: 5px;
-  left: 10px;
+  top: -2px;
+  left: 0;
   border: 1px solid #cfcfcf;
   background: #fcfcfc;
   cursor: pointer;
@@ -234,14 +249,19 @@
 #expenses-content #expenses-list .expense-item .title {
   float: left;
   width: 100%;
-  min-height: 3em;
-  margin: 0.25em 0;
+  height: 1.5em;
+  line-height: 1.5em;
+  margin: 1em 0 0.25em;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 #expenses-content #expenses-list .expense-item .date {
   float: left;
   width: 100%;
   bottom: 0;
   text-align: right;
+  font-size: 80%;
+  color: #777;
 }
 #categories-content #add-category-wrapper {
   clear: both;
@@ -411,7 +431,7 @@
   background-color: #ef8186;
   box-shadow: none;
 }
-.category-icon {
+#categories-content .category-icon {
   display: inline-block;
   width: 40px;
   height: 40px;
@@ -429,16 +449,12 @@
 #statistics {
   display: none;
 }
-#content-wrapper {
-  color: #222;
-}
 #content-wrapper #content-header {
   height: 60px;
   overflow: hidden;
   background: #ffffff;
 }
 #content-wrapper #content {
-  font-size: 16pt;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -458,12 +474,14 @@
   background-color: #999;
 }
 body {
-  font-family: 'Raleway', sans-serif;
   margin: 0;
   padding: 0;
   outline: none;
-  background-color: #F6F6F6;
+  background-color: #f2f2f2;
   overflow: hidden;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1em;
+  color: #444;
 }
 *[data-title] {
   position: relative;
