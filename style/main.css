@@ -169,6 +169,20 @@
   margin: 10px;
   float: right;
 }
+#expenses-content #add-expense-wrapper #add-expense-container {
+  float: right;
+  margin: 7px 17px 0 0;
+}
+#expenses-content #add-expense-wrapper #add-expense-container input,
+#expenses-content #add-expense-wrapper #add-expense-container select {
+  font-size: 1em;
+  padding: 8px 10px;
+  border: 1px solid #c0c0c0;
+  border-radius: 3px;
+}
+#expenses-content #add-expense-wrapper #add-expense-container input[type=date] {
+  padding: 6px 17px 3px 17px;
+}
 #expenses-content #expenses-list {
   width: 80%;
   max-width: 800px;

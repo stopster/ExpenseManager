@@ -3,8 +3,12 @@ define([
     'underscore',
     'backbone',
     'backbone.marionette',
-    'text!templates/expenses/expense.tpl'],
-    function($, _, Backbone, Marionette, Template) {
+    'models/expense',
+    'collections/categories',
+    'text!templates/expenses/expense.tpl',
+    'text!templates/expenses/expense.new.tpl',
+    ],
+    function($, _, Backbone, Marionette, Expense, CategoriesCollection, Template, NewTemplate) {
     'use strict';
 
     return Marionette.ItemView.extend({
@@ -15,19 +19,32 @@ define([
 
         template : _.template( Template ),
 
+        newTemplate: _.template( NewTemplate ),
+
         events : {
             'click .delete' : 'delete'
         },
 
-        initialize : function() {
+        initialize : function(options) {
+            if(options.isNew){
+                this.model = new Expense();
+            }
             this.listenTo(this.model, 'destroy',this.remove);
         },
 
-        render : function() {
-            var date = this.transformDate(this.model.get('date')),
-                modelObj = _.extend(this.model.toJSON(), {'date' : date});
+        render : function(isNew) {
+            var renderData = {},
+                template;
+            if(isNew){
+                template = this.newTemplate;
+                renderData.categoriesList = CategoriesCollection.models;
+            } else {
+                template = this.template;
+                var date = this.transformDate(this.model.get('date'));
+                renderData = _.extend(this.model.toJSON(), {'date' : date});
+            }
 
-            this.$el.html( this.template(modelObj) );
+            this.$el.html( template({ data: renderData }) );
 
             return this;
         },
@@ -59,7 +76,20 @@ define([
 
         delete : function() {
             this.model.destroy();
-        }
+        },
 
+        save: function(){
+            var category = this.$("#category")[0];
+            this.model.set({
+                amount: this.$("#amount").val(),
+                category: {
+                    title: category.value,
+                    color: category.options[category.selectedIndex].attributes["data-color"].value
+                },
+                title: this.$("#title").val(),
+                date: this.$("#date").val()
+            });
+            return this.model;
+        }
     });
 });
