@@ -21,8 +21,15 @@ define([
 
         emptyView : ExpensesEmptyView,
 
+        initialize: function(){
+            this.newItemView = new ExpenseView({ isNew: true });
+            this.$("#add-expense-container").html(this.newItemView.render(true).el);
+        },
+
         addExpense : function() {
-            console.log('add expense');
+            var savedExpense = this.newItemView.saveModel();
+            var savedExpenseView = new ExpenseView({ model: savedExpense });
+            this.$(this.itemViewContainer).append(savedExpenseView.render().el);
         }
     });
 });
