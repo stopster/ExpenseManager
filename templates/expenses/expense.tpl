@@ -1,6 +1,6 @@
 <div class="amount"><%- data.amount %></div>
 <div class="category-icon"
-     style="background-color: <%= data.category.color %>"
+     style="border-color: <%= data.category.color %>"
      data-title="<%= data.category.title %>"></div>
 <div class="options-wrapper">
     <div class="arrow"></div>
