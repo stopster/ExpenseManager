@@ -17,16 +17,19 @@ define([
         template : _.template( Template ),
 
         config : {
-            amount   : '#expense-new-amount',
-            category : '#expense-new-category',
-            title    : '#expense-new-title',
-            date     : '#expense-new-date'
+            amount       : '#expense-new-amount',
+            category     : '#expense-new-category',
+            title        : '#expense-new-title',
+            date         : '#expense-new-date',
+            invalidClass : 'invalid'
         },
 
         events : {
-            'click #expense-new-save'  : 'save',
-            'click #expense-new-clear' : 'clear',
-            'keydown #expense-new-amount' : 'filterNumbers'
+            'click   #expense-new-save'   : 'save',
+            'click   #expense-new-clear'  : 'clear',
+            'keydown #expense-new-amount' : 'filterNumbers',
+            'click   #expense-new-amount' : 'clearValidation',
+            'click   #expense-new-title'  : 'clearValidation'
         },
 
         render : function() {
@@ -47,7 +50,15 @@ define([
             });
             this.picker.setDate(new Date().toJSON());
 
-            this.$category.fancySelect();
+            this.$category.fancySelect({
+                optionTemplate : function(option) {
+                    return '<div class="category-icon" style="background-color:' + option.data('color') + '">&nbsp;</div><span class="category-title">' + option.text() + '</span>';
+                },
+
+                triggerTemplate : function(option) {
+                    return option.html();
+                }
+            });
 
             return this;
         },
@@ -59,13 +70,21 @@ define([
                 category = this.getCategory();
 
             if (!amount) {
+                this.$amount.addClass(this.config.invalidClass);
                 console.warn('Amount field empty');
                 return;
             }
             if (!title) {
+                this.$title.addClass(this.config.invalidClass);
                 console.warn('Title field empty');
                 return;
             }
+
+            if (!category) {
+                console.warn('Please select category');
+                return;
+            }
+
 
             ExpensesCollection.create({
                 amount   : amount,
@@ -105,6 +124,10 @@ define([
             this.$el.off();
 
             Marionette.ItemView.prototype.remove.call(this);
+        },
+
+        clearValidation : function(e) {
+            $(e.target).removeClass(this.config.invalidClass);
         }
     });
 });
