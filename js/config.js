@@ -10,6 +10,7 @@ var require = {
         'backbone.localStorage' : 'vendor/backbone.localStorage',
         'text'                  : 'vendor/require.text',
         'fancy.select'          : 'vendor/fancySelect',
+        'pikaday'               : 'vendor/pikaday',
         'templates'             : '../templates'
     },
 
