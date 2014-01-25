@@ -55,14 +55,14 @@
         var triggerHtml,
             selected = options.find('li.selected');
 
-            if (!selected.length) {
-                triggerHtml = settings.optionTemplate(sel.children().eq(0));
-            } else {
-                triggerHtml = settings.triggerTemplate(options.find('li.selected'));
-            }
+        if (!selected.length) {
+            triggerHtml = settings.optionTemplate(sel.children().eq(0));
+        } else {
+            triggerHtml = settings.triggerTemplate(options.find('li.selected'));
+        }
 
-        // triggerHtml = settings.triggerTemplate(sel.find('option').filter(function(){return this.selected}));
-        return trigger.html(triggerHtml);
+        trigger.html(triggerHtml).width(Math.max(options.width(), trigger.width()));
+        return trigger
       };
       sel.on('blur', function() {
         if (trigger.hasClass('open')) {
