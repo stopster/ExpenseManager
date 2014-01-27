@@ -15,10 +15,25 @@
 
         & > * {
             display: inline-block;
-            // height: 42px;
             float: left;
+            margin: 3px;
             vertical-align: top;
             box-sizing: border-box;
+        }
+
+        input {
+            padding: 6px;
+            color: #444;
+            outline: none;
+            border-style: solid;
+            border-width: 1px;
+            border-color: #BFC3DA;
+            border-radius: 4px;
+
+            &:focus {
+                border-color: #7E8FE0;
+                box-shadow: 0 0 0 1px #7E8FE0;
+            }
         }
 
         #expense-new-amount {
@@ -32,30 +47,124 @@
             display: none;
         }
 
-        .fancy-select {}
+        .fancy-select {
+            border: none;
+            outline: none;
+
+            .trigger {
+                height: 100%;
+                width: 100%;
+                min-width: 150px;
+                color: #444;
+                padding: 4px 6px;
+                padding-right: 20px;
+                box-sizing: border-box;
+                background: none;
+                border: solid 1px #BFC3DA;
+                border-radius: 4px;
+                outline: none;
+                box-shadow: none;
+
+                &:after {
+                    top: 46%;
+                    right: 4px;
+                }
+                &.open, &:focus, &:active {
+                    border-color: #7E8FE0;
+                    box-shadow: 0 0 0 1px #7E8FE0;
+                }
+            }
+
+            .options {
+                top: 45px;
+                color: #444;
+                background: #fff;
+                border: solid 1px;
+                border-top: solid 1px;
+                border-color: #7E8FE0;
+                box-shadow: none;
+                z-index: -1;
+
+                li {
+                    color: inherit;
+                }
+
+                &.open {
+                    z-index: 50;
+                }
+                .hover {
+                    background-color: rgba(126, 143, 224, .5);
+                    color: #fff;
+                }
+                .selected {
+                    background-color: rgba(126, 143, 224, .9);
+                    color: #fff;
+                }
+            }
+
+            .category-icon, .category-title {
+                vertical-align: middle;
+            }
+            .category-icon {
+                display: inline-block;
+                width: 20px;
+                height: 20px;
+                border: none;
+            }
+
+            .category-title {
+                padding-left: 10px;
+            }
+        }
 
         .pika-single {
             z-index: auto;
             background: none;
             border: none;
+            padding: 0;
 
             .pika-label {
                 z-index: auto;
+                background: none;
             }
 
-            .pika-button {
-                width: 25px;
-                height: 25px;
-                text-align: center;
-                padding: 5px;
+            td {
 
-                &:hover, &.is-selected {
+                &:hover .pika-button {
+                    background-color: #7E8FE0;
                     border-radius: 100%;
+                    color: #fff;
+                }
+
+                &.is-selected .pika-button {
+                    background-color: #7E8FE0;
+                    box-shadow: none;
+                    border-radius: 100%;
+                    color: #fff;
+                }
+
+                &.is-today .pika-button{
+                    color: #7E8FE0;
+                }
+
+                &.is-today.is-selected .pika-button {
+                    color: #fff;
+                }
+
+                .pika-button {
+                    width: 25px;
+                    height: 25px;
+                    text-align: center;
+                    padding: 5px;
+                    background: none;
                 }
             }
         }
 
-
+        .invalid {
+            border-color: #EC7063;
+            background-color: rgba(236, 112, 99, .4);
+        }
     }
 
     .button-container {

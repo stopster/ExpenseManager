@@ -40,11 +40,11 @@ module.exports = function(grunt) {
                 newcap  : false,
                 debug   : true,
                 globals : {
-                    require  : true,
-                    define   : false,
-                    console  : false,
-                    window   : false,
-                    document : false
+                    require    : true,
+                    define     : false,
+                    console    : false,
+                    window     : false,
+                    document   : false
                 }
             },
             files : {
