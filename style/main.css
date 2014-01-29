@@ -73,6 +73,10 @@
     position: absolute;
     margin-left: -200px;
     z-index: 100;
+    -moz-transition: 300ms ease;
+    -ms-transition: 300ms ease;
+    -o-transition: 300ms ease;
+    -webkit-transition: 300ms ease;
     transition: 300ms ease;
   }
   #main-menu-region.menu-closed {
