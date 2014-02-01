@@ -23,7 +23,7 @@ define([
 
         // sort all expenses by date by default
         comparator : function(item) {
-            return -new Date(item.get('date'));
+            return -(new Date(item.get('date')));
         }
     });
 

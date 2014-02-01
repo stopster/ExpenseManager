@@ -25,5 +25,5 @@
         </div>
     </div>
     <div class="title"><%- data.title %></div>
-    <div class="date"><%- data.date %></div>
+    <div class="date"><%- new Date(data.date).toDateString() %></div>
 </div>

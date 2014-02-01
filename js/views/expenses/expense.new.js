@@ -66,7 +66,7 @@ define([
         save : function() {
             var amount = _.escape(this.$amount.val()),
                 title  = _.escape(this.$title.val()),
-                date   = new Date(this.picker.getDate()).toDateString(),
+                date   = +new Date(this.picker.getDate()),
                 category = this.getCategory();
 
             if (!amount) {
