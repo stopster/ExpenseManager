@@ -11,6 +11,7 @@ var require = {
         'text'                  : 'vendor/require.text',
         'fancy.select'          : 'vendor/fancySelect',
         'pikaday'               : 'vendor/pikaday',
+        'snap.svg'              : 'vendor/snap.svg',
         'templates'             : '../templates'
     },
 

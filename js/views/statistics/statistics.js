@@ -18,17 +18,17 @@ define([
             ];
 
             this.subViews = this.subViews.map(function(subView) {
-                console.log(subView, CategoriesDonut);
                 return new subView({
-                    categories : CategoriesCollection,
-                    expenses   : ExpensesCollection,
+                    categories : CategoriesCollection.toJSON(),
+                    expenses   : ExpensesCollection.toJSON(),
                 });
             });
         },
 
         onShow : function() {
+            this.$el.empty();
+
             this.subViews.forEach(function(subView) {
-                console.log(subView.render());
                 this.$el.append(subView.render().$el);
             }, this);
         }
