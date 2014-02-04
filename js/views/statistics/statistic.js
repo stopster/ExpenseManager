@@ -9,8 +9,9 @@ define([
 
         template : _.template(Template),
 
-        initialize : function(options) {
-            this.data = options;
+        initialize : function() {
+            this.categories = this.model.get('categories');
+            this.expenses   = this.model.get('expenses');
         }
 
     });
