@@ -17,7 +17,7 @@
             <div class="option delete">
                 <div class="icon">
                     <svg viewBox="0 0 48 48">
-                        <use xlink:href="#close"></use>
+                        <use xlink:href="#trash"></use>
                     </svg>
                 </div>
                 Delete
