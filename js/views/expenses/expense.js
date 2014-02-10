@@ -40,11 +40,14 @@ define([
         delete : function(e) {
             var root = this;
 
-            this.$('.expense-item').append(this.deleteTemplate());
+            this.$('.expense-item').
+                addClass('delete').
+                append(this.deleteTemplate());
 
             this.$('.delete-overlay').on('click', function() {
                 $(document).off('click.delete-expense');
                 $(this).remove();
+                root.$('.expense-item').removeClass('delete');
             });
 
             // on click anywhere except "undo" actually destroy the model
