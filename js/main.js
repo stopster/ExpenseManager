@@ -8,7 +8,7 @@ window.GenerateData = function(count) {
     ], function(_, Chance, Expenses, Categories){
         var chance = new Chance(),
             category;
-        console.log(Categories);
+
         for (var i = 0; i < count; i++) {
             category = _.sample(Categories.models);
 

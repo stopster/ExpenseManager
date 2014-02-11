@@ -27,7 +27,6 @@ define([
         events : {
             'click   #expense-new-save'   : 'save',
             'click   #expense-new-clear'  : 'clear',
-            'keydown #expense-new-amount' : 'filterNumbers',
             'click   #expense-new-amount' : 'clearValidation',
             'click   #expense-new-title'  : 'clearValidation'
         },
@@ -66,25 +65,13 @@ define([
         save : function() {
             var amount = _.escape(this.$amount.val()),
                 title  = _.escape(this.$title.val()),
-                date   = new Date(this.picker.getDate()).toDateString(),
-                category = this.getCategory();
+                date   = +new Date(this.picker.getDate()),
+                category = this.getCategory(),
+                valid = this.validate(amount, title, category, date);
 
-            if (!amount) {
-                this.$amount.addClass(this.config.invalidClass);
-                console.warn('Amount field empty');
+            if (!valid) {
                 return;
             }
-            if (!title) {
-                this.$title.addClass(this.config.invalidClass);
-                console.warn('Title field empty');
-                return;
-            }
-
-            if (!category) {
-                console.warn('Please select category');
-                return;
-            }
-
 
             ExpensesCollection.create({
                 amount   : amount,
@@ -96,15 +83,35 @@ define([
             this.clear();
         },
 
+        validate : function(amount, title, category, date) {
+            if (!amount || isNaN(+amount)) {
+                this.$amount.addClass(this.config.invalidClass);
+                console.warn('Amount field empty');
+                return false;
+            }
+            if (!title) {
+                this.$title.addClass(this.config.invalidClass);
+                console.warn('Title field empty');
+                return false;
+            }
+
+            if (!category) {
+                console.warn('Please select category');
+                return false;
+            }
+
+            if (!date) {
+                //this probably not possible
+            }
+
+            return true;
+        },
+
         clear : function() {
             this.$amount.val('');
             this.$title.val('');
             this.picker.setDate(new Date().toJSON());
             this.$category.trigger('update');
-        },
-
-        filterNumbers : function() {
-            // console.log(String.fromCharCode(e.keyCode));
         },
 
         getCategory : function() {

@@ -17,13 +17,13 @@
             <div class="option delete">
                 <div class="icon">
                     <svg viewBox="0 0 48 48">
-                        <use xlink:href="#close"></use>
+                        <use xlink:href="#trash"></use>
                     </svg>
                 </div>
                 Delete
             </div>
         </div>
     </div>
-    <div class="title"><%- data.title %></div>
-    <div class="date"><%- data.date %></div>
+    <div class="title"><%- _.unescape(data.title) %></div>
+    <div class="date"><%- new Date(data.date).toDateString() %></div>
 </div>

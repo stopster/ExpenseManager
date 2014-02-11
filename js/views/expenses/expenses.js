@@ -20,6 +20,25 @@ define([
 
         onShow: function() {
             this.newExpense = new NewExpenseView().render();
+        },
+
+        // overriding Marionette "appendHtml" method
+        // to insert itemView at a specified position, as it is in the collection
+        appendHtml : function(compositeView, itemView, index) {
+            var $container, $nextEl;
+
+            if (compositeView.isBuffering) {
+                compositeView.elBuffer.appendChild(itemView.el);
+            } else {
+                $container = this.getItemViewContainer(compositeView);
+                $nextEl    = $container.children().eq(index);
+
+                if ($nextEl.length) {
+                    itemView.$el.insertBefore($nextEl);
+                } else {
+                    $container.append(itemView.el);
+                }
+            }
         }
     });
 });
